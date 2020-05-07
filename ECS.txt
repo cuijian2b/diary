@@ -3,3 +3,5 @@
 
 
 编译环境
+SVN: yum install subversion 
+    var/svn/目录可以查看SVN账号信息
