@@ -1,7 +1,14 @@
-系统操作
-1、设置快照备份系统
+1、代理后台web添加功能
+sx_data 数据库 
+    t_proxy_auth 添加功能id207
+    t_proxy_role_auth 将功能赋予对应权限操作等级
+
+nginx web服务器
+    hlua 添加对应功能id的方法 change_status.lua 添加入口
+    html 添加对应功能id的方法 change_status.html web展示
+    hlua/ajax 添加对应功能id的方法 user_back_state_ajax.lua 数据库操作
+
+netstat -ntlp|sort
+./sbin/nginx -s reload
 
 
-编译环境
-SVN: yum install subversion 
-    var/svn/目录可以查看SVN账号信息
