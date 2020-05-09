@@ -3,5 +3,51 @@
 
 
 编译环境
-SVN: yum install subversion 
+1、SVN
+    yum install subversion 
     var/svn/目录可以查看SVN账号信息
+
+2、 GIT
+    yum install curl-devel expat-devel gettext-devel \
+    openssl-devel zlib-devel
+    yum -y install git-core
+    git config --global user.name "cuijian2b"
+    git config --global user.email "1101976450@qq.com"
+ 
+ 2、Scons
+    wget http://prdownloads.sourceforge.net/scons/scons-2.5.0.tar.gz
+    tar zxvf scons-2.5.0.tar.gz
+    cd scons-2.5.0
+    python setup.py install
+
+ 2、Python
+    wget https://www.python.org/ftp/python/2.7.6/Python-2.7.6.tgz
+    tar -xvf Python-2.7.6.tgz
+    cd Python-2.7.6
+
+3、C++
+    gcc: yum install gcc
+    g++: yum install gcc-c++
+    此外还有以下方法：
+            yum install make
+    -- 或者
+            yum groupinstall "Development Tools"
+    -- 或者
+            yum install gcc gcc-c++ kernel-devel
+
+4、lua
+    1、下载
+        wget http://www.lua.org/ftp/lua-5.1.4.tar.gz 
+    2、安装
+        tar –xzvf lua-5.1.4.ctar.gz
+        cd lua-5.1.4
+        make linux test
+        make install
+    3、readline的依赖
+        yum install libtermcap-devel ncurses-devel libevent-devel readline-devel 
+
+
+
+
+常用命令
+chmod -R 777 /home
