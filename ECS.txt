@@ -14,18 +14,41 @@
     git config --global user.name "cuijian2b"
     git config --global user.email "1101976450@qq.com"
  
- 2、Scons
+ 3、Scons依赖Python2
     wget http://prdownloads.sourceforge.net/scons/scons-2.5.0.tar.gz
     tar zxvf scons-2.5.0.tar.gz
     cd scons-2.5.0
     python setup.py install
 
- 2、Python
-    wget https://www.python.org/ftp/python/2.7.6/Python-2.7.6.tgz
-    tar -xvf Python-2.7.6.tgz
-    cd Python-2.7.6
+ 4、Python
+    环境
+        yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
+    安装
+        wget https://www.python.org/ftp/python/2.7.6/Python-2.7.6.tgz
+        tar -xvf Python-2.7.6.tgz
+        cd Python-2.7.6
+        ./configure --prefix=/usr/local/python2.7
+        make
+        make install
+        ln -fs /usr/local/python2.7/bin/python2.7 /usr/bin/python
+        PATH=$PATH:/usr/local/python2.7/bin #添加/home/tito/bin到PATH环境变量
 
-3、C++
+        先把系统默认的旧版 Python 重命名。
+            mv /usr/bin/python /usr/bin/python.old  
+        再删除系统默认的 python-config 软链接。
+            rm -f /usr/bin/python-config  
+        最后创建新版本的 Python 软链接。
+            ln -s /usr/local/bin/python /usr/bin/python  
+            ln -s /usr/local/bin/python-config /usr/bin/python-config  
+            ln -s /usr/local/include/python2.7/ /usr/include/python2.7 
+
+    卸载
+        rpm -qf /usr/local/python2.7
+        rpm -e python-2.7.6
+
+/usr/local/bin
+
+5、C++
     gcc: yum install gcc
     g++: yum install gcc-c++
     此外还有以下方法：
@@ -35,7 +58,7 @@
     -- 或者
             yum install gcc gcc-c++ kernel-devel
 
-4、lua
+6、lua
     1、下载
         wget http://www.lua.org/ftp/lua-5.1.4.tar.gz 
     2、安装
